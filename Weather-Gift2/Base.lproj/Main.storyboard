@@ -13,7 +13,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Qpi-yX-o3I" customClass="PageViewController" customModule="Weather_Gift2" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSe-t6-eUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-676" y="-576"/>
+            <point key="canvasLocation" x="-679" y="-655"/>
         </scene>
         <!--Location Detail View Controller-->
         <scene sceneID="Mao-Uy-FH9">
@@ -30,6 +30,18 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem title="About" id="jbD-f6-5dp"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JfA-vd-nvc"/>
+                                    <barButtonItem style="plain" id="9dO-Oe-Yxi">
+                                        <pageControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="oRW-zO-dtB">
+                                            <rect key="frame" x="74" y="4" width="172" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="pageIndicatorTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="pageControlTapped:" destination="Tlj-E6-i6q" eventType="valueChanged" id="nVl-iD-rLS"/>
+                                            </connections>
+                                        </pageControl>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DsB-vi-FBQ"/>
                                     <barButtonItem image="list.bullet" catalog="system" id="IyP-KM-Wuq">
                                         <connections>
@@ -95,6 +107,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="mE2-O6-pXK" id="ijA-yP-HA9"/>
                         <outlet property="imageView" destination="Mh9-co-NEi" id="e8V-by-ujh"/>
+                        <outlet property="pageControl" destination="oRW-zO-dtB" id="NOe-g4-kyq"/>
                         <outlet property="placeLabel" destination="ZXT-8W-0yO" id="flR-qu-hF8"/>
                         <outlet property="summaryLabel" destination="HYL-y0-NAK" id="pai-1E-a2o"/>
                         <outlet property="temperatureLabel" destination="z4H-Iz-JV4" id="Yzb-AM-VyK"/>
