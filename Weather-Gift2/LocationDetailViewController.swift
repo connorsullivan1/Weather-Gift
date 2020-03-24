@@ -16,33 +16,17 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     var weatherLocation: WeatherLocation!
-    var weatherLocations: [WeatherLocation] = []
+    var locationIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if weatherLocation == nil {
-            weatherLocation = WeatherLocation(name: "Current Location", latitude: 0, longitude: 0)
-            weatherLocations.append(weatherLocation)
-        }
-        loadLocations()
         updateUserInterface()
     }
     
-    func loadLocations() {
-        guard let locationsEncoded = UserDefaults.standard.value(forKey: "weatherLocations") as? Data
-            else {
-                print("Error: couldn't load weatherLocations data from UserDefaults")
-                return
-        }
-        let decoder = JSONDecoder()
-        if let weatherLocations = try? decoder.decode(Array.self, from: locationsEncoded) as [WeatherLocation] {
-            self.weatherLocations = weatherLocations
-        } else {
-            print("Error: Couldn't decode data from UserDefaults")
-        }
-    }
-    
     func updateUserInterface() {
+        let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
+        weatherLocation = pageViewController.weatherLocations[locationIndex]
+        
         dateLabel.text = ""
         placeLabel.text = weatherLocation.name
         temperatureLabel.text = "--°"
@@ -51,14 +35,17 @@ class LocationDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! LocationListViewController
-        destination.weatherLocations = weatherLocations
+        let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
+        destination.weatherLocations = pageViewController.weatherLocations
     }
     
     @IBAction func unwindFromLocationListViewController(segue: UIStoryboardSegue) {
         let source = segue.source as! LocationListViewController
-        weatherLocations = source.weatherLocations
-        weatherLocation = weatherLocations[source.selectedLocationIndex]
-        updateUserInterface()
+        locationIndex = source.selectedLocationIndex
+        let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
+        pageViewController.weatherLocations = source.weatherLocations
+
+        pageViewController.setViewControllers([pageViewController.createLocationDetailViewController(forPage: locationIndex)], direction: .forward, animated: false, completion: nil)
     }
     
 }
