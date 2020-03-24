@@ -14,21 +14,19 @@ class LocationListViewController: UIViewController {
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     
+    var selectedLocationIndex = 0
     var weatherLocations: [WeatherLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var weatherLocation = WeatherLocation(name: "0", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
-        weatherLocation = WeatherLocation(name: "1", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
-        weatherLocation = WeatherLocation(name: "2", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
-        
         tableView.delegate = self
         tableView.dataSource = self
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        selectedLocationIndex = tableView.indexPathForSelectedRow!.row
     }
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -50,6 +48,7 @@ class LocationListViewController: UIViewController {
             addBarButton.isEnabled = false
         }
     }
+    
 }
 
 extension LocationListViewController: UITableViewDataSource, UITableViewDelegate {
