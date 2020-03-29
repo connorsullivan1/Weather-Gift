@@ -41,7 +41,7 @@ class LocationListViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
-
+        
         // Display the autocomplete view controller.
         present(autocompleteController, animated: true, completion: nil)
     }
@@ -88,25 +88,25 @@ extension LocationListViewController: UITableViewDataSource, UITableViewDelegate
 }
 
 extension LocationListViewController: GMSAutocompleteViewControllerDelegate {
-
-  // Handle the user's selection.
-  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-    let newLocation = WeatherLocation(name: place.name ?? "unknown location", latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-    weatherLocations.append(newLocation)
-    tableView.reloadData()
-    dismiss(animated: true, completion: nil)
-  }
-
-  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-    // TODO: handle the error.
-    print("Error: ", error.localizedDescription)
-  }
-
-  // User canceled the operation.
-  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-    dismiss(animated: true, completion: nil)
-  }
-
-
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        let newLocation = WeatherLocation(name: place.name ?? "unknown location", latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+        weatherLocations.append(newLocation)
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
