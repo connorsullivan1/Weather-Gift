@@ -9,14 +9,12 @@
 import Foundation
 
 private let dateFormatter: DateFormatter = {
-    print("I Just Created a Date Formatter")
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
     return dateFormatter
 }()
 
 private let hourlyFormatter: DateFormatter = {
-    print("I Just Created an Hourly Formatter")
     let hourlyFormatter = DateFormatter()
     hourlyFormatter.dateFormat = "ha"
     return hourlyFormatter
