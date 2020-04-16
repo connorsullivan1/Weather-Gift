@@ -21,6 +21,7 @@
 		B397DF0D24299CEF004B58B9 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397DF0C24299CEF004B58B9 /* LocationDetailViewController.swift */; };
 		B397DF0F2429AA16004B58B9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397DF0E2429AA16004B58B9 /* PageViewController.swift */; };
 		B397DF112429BC01004B58B9 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397DF102429BC01004B58B9 /* WeatherDetail.swift */; };
+		B3D25A142448E2F600903A11 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D25A132448E2F600903A11 /* AboutViewController.swift */; };
 		B3F144902447F238003898FF /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1448F2447F238003898FF /* UIViewController+alert.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		B397DF0C24299CEF004B58B9 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		B397DF0E2429AA16004B58B9 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B397DF102429BC01004B58B9 /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
+		B3D25A132448E2F600903A11 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B3F1448F2447F238003898FF /* UIViewController+alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				B3F1448F2447F238003898FF /* UIViewController+alert.swift */,
 				B397DF0C24299CEF004B58B9 /* LocationDetailViewController.swift */,
 				B30089A324298B0800F3FA38 /* LocationListViewController.swift */,
+				B3D25A132448E2F600903A11 /* AboutViewController.swift */,
 				B33277F1242FF7990061B107 /* DailyTableViewCell.swift */,
 				B33277F32430309E0061B107 /* HourlyCollectionViewCell.swift */,
 				B30089A524298B0800F3FA38 /* Main.storyboard */,
@@ -236,6 +239,7 @@
 				B397DF0F2429AA16004B58B9 /* PageViewController.swift in Sources */,
 				B30089A424298B0800F3FA38 /* LocationListViewController.swift in Sources */,
 				B30089A024298B0800F3FA38 /* AppDelegate.swift in Sources */,
+				B3D25A142448E2F600903A11 /* AboutViewController.swift in Sources */,
 				B30089B424298C0E00F3FA38 /* APIkeys.swift in Sources */,
 				B3F144902447F238003898FF /* UIViewController+alert.swift in Sources */,
 				B397DF0D24299CEF004B58B9 /* LocationDetailViewController.swift in Sources */,
