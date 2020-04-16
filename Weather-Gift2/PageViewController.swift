@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PageViewController: UIPageViewController {
     
     var weatherLocations: [WeatherLocation] = []
+    
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
         self.dataSource = self
+        
         
         loadLocations()
         setViewControllers([createLocationDetailViewController(forPage: 0)], direction: .forward, animated: false, completion: nil)
@@ -39,6 +43,7 @@ class PageViewController: UIPageViewController {
         
         if weatherLocations.isEmpty {
             weatherLocations.append(WeatherLocation(name: "Current Location", latitude: 0, longitude: 0))
+            print("Weather locations is empty. gave coordinates 0,0")
         }
     }
     
@@ -70,3 +75,4 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     }
     
 }
+

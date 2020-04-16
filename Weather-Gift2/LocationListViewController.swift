@@ -77,6 +77,7 @@ extension LocationListViewController: UITableViewDataSource, UITableViewDelegate
         if editingStyle == .delete {
             weatherLocations.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            saveLocations()
         }
     }
     
@@ -84,6 +85,7 @@ extension LocationListViewController: UITableViewDataSource, UITableViewDelegate
         let itemToMove = weatherLocations[sourceIndexPath.row]
         weatherLocations.remove(at: sourceIndexPath.row)
         weatherLocations.insert(itemToMove, at: destinationIndexPath.row)
+        saveLocations()
     }
 }
 
